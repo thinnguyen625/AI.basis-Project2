@@ -37,20 +37,20 @@ class KB:
                 if False in resolvents:
                     count += 1
                     buf += "{}\n"
-            
-            if set(new).issubset(set(self.clauses)):
-                self.result += str(count) + '\n' + "NO\n"
-                return False
-            
-            for c in new:
-                if c not in self.clauses:
-                    self.clauses.append(c)
-            
+                    
             self.result += str(count) + '\n' + buf
 
             if "{}\n" in buf:
                 self.result += "YES\n"
                 return True
+
+            if set(new).issubset(set(self.clauses)):
+                self.result += "NO\n"
+                return False
+            
+            for c in new:
+                if c not in self.clauses:
+                    self.clauses.append(c)
             
 def toCNF(tuplelist):
     '''
@@ -219,7 +219,6 @@ def makeTupleList(strList):
 def read_input(path):
     '''
     Read the input file and store the query alpha and knowledge base KB
-
     Parameters:
         path: directory to the input file
     '''
@@ -249,6 +248,11 @@ def main(args):
     '''
     Driver function
     '''
+
+    print(args.input)
+
+    print(args.output)
+
     alpha, KB_sentences = read_input(args.input)
 
     agent = KB(sentences = KB_sentences)

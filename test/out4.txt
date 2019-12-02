@@ -8,19 +8,19 @@ E
 F
 -B OR -E
 10
--B OR -D
 B OR E
+-B OR -D
 -A OR -E OR F
 B OR F
 -A OR -B
 D OR -E
--B
--A OR -D OR F
 -A OR -D OR E
+-A OR -D OR F
 -A OR D
+-B
 3
 -A OR E
--A OR F
 -E OR F
+-A OR F
 0
 NO
