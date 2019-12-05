@@ -1,14 +1,13 @@
-%---------------------------
-person(thin).
-person(truc).
-person(vu).
-person(cuong).
-person(kim).
-person(hung).
+person(thin_1).
+person(thin_2).
+person(truc_1).
+person(truc_2).
+person(vu_1).
+person(vu_2).
 
-chef(thin).
-chef(truc).
-chef(hung).
+chef(thin_1).
+chef(thin_2).
+chef(truc_1).
 
 place(vietnam).
 place(japan).
@@ -59,8 +58,8 @@ event(birthday).
 event(family_meeting).
 event(wedding).
 
-allergy(cuong, fish).
-allergy(hung, salt).
+allergy(vu_1, fish).
+allergy(vu_2, salt).
 
 sweat(sugar).
 sweat(coconut).
@@ -105,8 +104,8 @@ alcoholic(beer).
 alcoholic(wine).
 alcoholic(strongbow).
 
-vegetarian(hung).
-vegetarian(kim).
+vegetarian(truc_1).
+vegetarian(truc_2).
 
 dish_in_event(cake, birthday).
 dish_in_event(fried_fish, birthday).
@@ -184,23 +183,23 @@ drink_in_event(beer, birthday).
 drink_in_event(wine, wedding).
 drink_in_event(strongbow, family_meeting).
 
-chef_in_event(thin, family_meeting).
-chef_in_event(truc, birthday).
-chef_in_event(hung, wedding).
-chef_in_event(thin, wedding).
-chef_in_event(truc, family_meeting).
+chef_in_event(thin_1, family_meeting).
+chef_in_event(thin_2, birthday).
+chef_in_event(truc_1, wedding).
+chef_in_event(thin_1, wedding).
+chef_in_event(thin_2, family_meeting).
 
-invited(birthday, kim).
-invited(wedding, vu).
-invited(family_meeting, cuong).
+invited(birthday, truc_2).
+invited(wedding, vu_2).
+invited(family_meeting, vu_1).
 
 cant_eat(P, D):-ingredient(I), ingredient_in_dish(I, D), allergy(P, I).
 cant_eat(P, D):-vegetarian(P), ingredient_in_dish(I, D), meat(I).
 cant_eat(P, D):-vegetarian(P), ingredient_in_dish(I, D), seafood(I).
 
-cant_drink(vu, wine).
-cant_drink(thin, water).
-cant_drink(truc, strongbow).
+cant_drink(vu_2, wine).
+cant_drink(thin_1, water).
+cant_drink(thin_2, strongbow).
 
 cant_join(P, E):-dish(D), dish_in_event(D, E), cant_eat(P, D).
 
